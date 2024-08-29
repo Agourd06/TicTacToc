@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
-    
+
+    <div class="rigister">
+        <form class="form" >
+            <div class="title">Chose player's usernames<br><span>Need to chose for continue</span></div>
+            <div>
+                <p id="validmsg1">snzjjz</p>
+
+                <input class="input" id="p1" name="player1" placeholder="Player n°1" type="text">
+
+            </div>
+            <div>
+                <p id="validmsg2">snzjjz</p>
+                <input class="input" id="p2" name="player2" placeholder="Player n°2" type="text">
+
+
+            </div>
+
+            <button onclick="Newplayers()" class="button-confirm">Let`s go →</button>
+        </form>
+        <button onclick="p1Wp2()" class="button-confirm">Let`s go →</button>
+
+    </div>
+    <script src="playersEntrer.js"></script>
+
 </body>
+
 </html>
