@@ -58,10 +58,13 @@ function generateWinningCombos(boardSize, comboLength) {
 
 
 function addSymbol(index) {
-
-    if (!gameBegin) return alert("game not started yet")
-    if (squires[index] == '') {
+    if (!gameBegin) {
+        document.getElementById("messages").style.display = 'flex';
+        return document.getElementById("notStarted").style.display = 'flex';
+    }
+    if (squires[index] === '') {
         squires[index] = PlayerTurn;
+
         if (PlayerTurn === 'X') {
             document.getElementsByClassName("Carre")[index].style.color = '#01016f';
         } else {
@@ -70,16 +73,32 @@ function addSymbol(index) {
 
         document.getElementsByClassName("Carre")[index].textContent = PlayerTurn;
 
-
         winned();
 
-        if (gameBegin) {
+        // its a draw
+        if (isDraw()) {
+
+            document.getElementById("messages").style.display = 'flex';
+            document.getElementById("drawMessage").style.display = 'flex';
+            gameBegin = false; 
+
+        } else if (gameBegin) {
 
             PlayerTurn = PlayerTurn === 'X' ? 'O' : 'X';
         }
     }
-
 }
+
+
+function isDraw() {
+    for (let i = 0; i < squires.length; i++) {
+        if (squires[i] === '') {
+            return false;
+        }
+    }
+    return true;
+}
+
 
 function playerScore(winner) {
 
@@ -103,10 +122,13 @@ function winned() {
     for (let combo of wininningCombos) {
         if (combo.every(index => squires[index] === PlayerTurn)) {
             playerScore(PlayerTurn)
+            document.getElementById("win").innerHTML = PlayerTurn + "'s" + " " + "Win";
+            document.getElementById("messages").style.display = 'flex';
+            document.getElementById("win").style.display = 'flex';
             gameBegin = false
             PlayerTurn = 'X';
             newGame()
-            alert('you win');
+
             PlayerTurn = PlayerTurn === 'X' ? 'O' : 'X';
 
         }
@@ -162,6 +184,10 @@ function ShowDetails() {
 function removeDetails() {
     document.getElementById('detailBg').style.display = 'none';
     document.getElementById('deatilsPart').innerHTML = '';
+}
+
+function removeMessages() {
+    document.getElementById('messages').style.display = 'none';
 }
 
 // Bug : need to fix the restart game logique

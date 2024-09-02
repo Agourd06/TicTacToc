@@ -39,7 +39,7 @@
         <div class="buttonsPart">
             <button class="restartButton" onclick="restartGame()"> <span> Restart
                 </span></button>
-            <button class="DetailsButton" onclick="newGame()"><span> New Game
+            <button class="NewGame" onclick="newGame()"><span> New Game
                 </span></button>
             <button class="Details" onclick="ShowDetails()"><span> Details
                 </span></button>
@@ -47,7 +47,18 @@
     </section>
     <section id="detailBg" onclick="removeDetails()">
         <div class="deatilsPart" id="deatilsPart">
-
+            
+        </div>
+    </section>
+    <section id="messages" onclick="removeMessages()" >
+        <div id="notStarted" >
+            <p>game not started yet</p>
+        </div>
+        <div id="win" >
+            
+        </div>
+        <div id="drawMessage" >
+            <p>Draw</p>
         </div>
     </section>
     <script src="playersEntrer.js"></script>
