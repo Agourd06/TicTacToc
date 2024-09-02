@@ -37,9 +37,10 @@ function myPlayer() {
 function validation(input1, input2) {
 
   if (!input1.trim() || !input2.trim()) {
-    alert("Please enter valid names");
-    return false; // Return false if validation fails
+    document.getElementById("messages").style.display = 'flex';
+    document.getElementById("ValidationMessage").style.display = 'flex';  
+      return false; 
   }
 
-  return true; // Return true if validation passes
+  return true; 
 }

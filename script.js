@@ -52,7 +52,8 @@ function generateWinningCombos(boardSize, comboLength) {
             combos.push(combo);
         }
     }
-
+    console.log(combos);
+    
     return combos;
 }
 

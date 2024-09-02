@@ -306,6 +306,21 @@ body {
     background-color: rgb(168, 168, 168);
 
 }
+#ValidationMessage {
+    min-height: 100px;
+    max-height: 500px;
+    width: 30%;
+    background-color: #fff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: black;
+    padding: 6px;
+    border-radius: 15px;
+    background-color: rgb(168, 168, 168);
+
+}
 
 
 
