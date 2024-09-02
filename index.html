@@ -11,6 +11,7 @@
 
 <body>
     <div id="rigister">
+        <div ><p class="tictactoe"><span class="tic">Tic</span><span class="tac">Tac</span><span class="toe">Toe</span></p></div>
         <div class="form">
             <div class="title">Chose player's usernames<br><span>Need to chose for continue</span></div>
             <div>
@@ -36,8 +37,17 @@
             </div>
         </div>
         <div class="buttonsPart">
-            <button class="restartButton"></button>
-            <button class="DetailsButton"></button>
+            <button class="restartButton" onclick="restartGame()"> <span> Restart
+                </span></button>
+            <button class="DetailsButton" onclick="newGame()"><span> New Game
+                </span></button>
+            <button class="Details" onclick="ShowDetails()"><span> Details
+                </span></button>
+        </div>
+    </section>
+    <section id="detailBg" onclick="removeDetails()">
+        <div class="deatilsPart" id="deatilsPart">
+
         </div>
     </section>
     <script src="playersEntrer.js"></script>

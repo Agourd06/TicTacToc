@@ -19,24 +19,39 @@ body {
     border-radius: 20px;
     border: 2px solid var(--main-color);
     box-shadow: 4px 4px var(--main-color);
-    
+
 }
 
 #rigister {
     width: 100%;
-    height: 100vh;
-    display: none;
+    display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.8);
+    z-index: 50;
 
 }
-
+.tictactoe{
+    font-size: 35px;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+}
+.tic{
+    color: #01016f;
+}
+.tac{
+    color: white;
+}
+.toe{
+    color: #d8031c;
+}
 .title {
     color: var(--font-color);
     font-weight: 900;
@@ -127,40 +142,270 @@ body {
 
 #SquiresBoard {
     display: grid;
-    grid-template-columns: repeat(20,1fr);
-    height: 50vh;
-    background-color: rgb(43, 39, 39);
-    border: 1px solid black ;
+    grid-template-columns: repeat(20, 1fr);
+    width: 100%;
+    overflow: scroll;
+    height: 80vh;
+    background-color: #000048;
+    border: 1px solid black;
+    scrollbar-width: thin; 
+    scrollbar-color: #000048 rgb(168, 168, 168);
 }
 
 .sect {
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 100%;
-    
+
+
 }
-.playPage{
+
+.playPage {
     min-height: 100vh;
     padding: 10px 20px 0px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 95%;
 }
-.playersName{
+
+.playersName {
     width: 40%;
-    background-color: black;
+    background-color: #000048;
     height: 50px;
     margin-bottom: 10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    padding: 0 10px;
+    font-size: 27px;
+
 }
+
+.playersName span {
+    flex: 1;
+    text-align: center;
+    word-spacing: 40px;
+}
+
 .Carre {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
     background-color: rgb(189, 188, 188);
-    width: 40px !important;
-    height: 40px !important;
-    font-size: 0.75rem; 
-    box-sizing: border-box; 
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 2rem;
+    color: white;
+    box-sizing: border-box;
+  
+    border-radius: 10px;
+}
+
+#detailBg {
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 50;
+}
+
+
+
+
+
+
+.deatilsPart{
+    min-height: 100px;
+    max-height: 500px;
+    overflow: scroll;
+    width: 30%;
+    background-color: #fff;
+    color: black;
+    padding: 6px;
+    border-radius: 15px;
+    background-color: rgb(168, 168, 168);
+    scrollbar-width: thin; 
+    scrollbar-color: #000048 rgb(168, 168, 168);
+}
+.myWins{
+    color: rgb(25, 27, 60);
+    margin-bottom: 4px;
+}
+
+.buttonsPart {
+    height: 8vh;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px 0px 10px;
+    gap: 15px;
+}
+
+.restartButton {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #03045e;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.restartButton::before,
+.restartButton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.restartButton::before {
+    left: -10px;
+    background: #240046;
+}
+
+.restartButton::after {
+    right: -10px;
+    background: #5a189a;
+}
+
+.restartButton:hover::before,
+.restartButton:hover::after {
+    width: 58%;
+}
+
+.restartButton:hover span {
+    color: white;
+    transition: 0.3s;
+}
+
+.restartButton span {
+    color: #03045e;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+}
+
+.Details {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #03045e;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+    cursor: pointer;
+
+}
+
+.Details::before,
+.Details::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.Details::before {
+    left: -10px;
+    background: #240046;
+}
+
+.Details::after {
+    right: -10px;
+    background: #5a189a;
+}
+
+.Details:hover::before,
+.Details:hover::after {
+    width: 58%;
+}
+
+.Details:hover span {
+    color: white;
+    transition: 0.3s;
+}
+
+.Details span {
+    color: #03045e;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+}
+
+.DetailsButton {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #03045e;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+    cursor: pointer;
+
+}
+
+.DetailsButton::before,
+.DetailsButton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.DetailsButton::before {
+    left: -10px;
+    background: #240046;
+}
+
+.DetailsButton::after {
+    right: -10px;
+    background: #5a189a;
+}
+
+.DetailsButton:hover::before,
+.DetailsButton:hover::after {
+    width: 58%;
+}
+
+.DetailsButton:hover span {
+    color: white;
+    transition: 0.3s;
+}
+
+.DetailsButton span {
+    color: #03045e;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
 }
